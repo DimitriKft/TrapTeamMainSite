@@ -143,18 +143,18 @@ setTimeout(ldinsp, 0);
     <main role="main" class="inner cover">
       <h1 class="cover-heading">Sign In!</h1>
       <button
-          class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button"
-          data-provider-id="google.com" data-upgraded=",MaterialButton"  id='msauth'  style='margin-bottom: 15px;'><span class="firebaseui-idp-icon-wrapper"><img
+          class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-twitter firebaseui-id-idp-button"
+          data-provider-id="google.com" data-upgraded=",MaterialButton"  id='msauth'  style='margin-bottom: 15px;background-color:#00A4EF;'><span class="firebaseui-idp-icon-wrapper"><img
               class="firebaseui-idp-icon" alt="" 
-              src="//cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/microsoft-512.png"></span><span
+              src="//4.bp.blogspot.com/-rC3Z3Fejo3Y/XIBfuf4gjpI/AAAAAAAAIdI/lSuGFJvlA701AmDafcD0LeeQ-jTrCDBygCK4BGAYYCw/s1600/microsoft%2Bicon%2Blogo%2B.png"></span><span
             class="firebaseui-idp-text firebaseui-idp-text-long">Sign in with Microsoft</span><span
             class="firebaseui-idp-text firebaseui-idp-text-short">Microsoft</span></button >
             <br>
             <button
-          class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button"
-          data-provider-id="google.com" data-upgraded=",MaterialButton"  onclick='netlifyIdentity.open();' style=' display: flex-block'><span class="firebaseui-idp-icon-wrapper"><img
+          class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-github firebaseui-id-idp-button"
+          data-provider-id="google.com" data-upgraded=",MaterialButton"  onclick='netlifyIdentity.open();' style='background-color:#F1502F'><span class="firebaseui-idp-icon-wrapper"><img
               class="firebaseui-idp-icon" alt="" 
-              src="//image.flaticon.com/icons/svg/1680/1680973.svg"></span><span
+              src="//git-scm.com/images/logos/downloads/Git-Icon-Black.png"></span><span
             class="firebaseui-idp-text firebaseui-idp-text-long">Sign in with Git</span><span
             class="firebaseui-idp-text firebaseui-idp-text-short">Git</span></button><br>
       <div id="firebaseui-auth-container"></div>
@@ -202,7 +202,6 @@ setTimeout(ldinsp, 0);
             //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
                         'microsoft.com',
 
-            firebase.auth.GithubAuthProvider.PROVIDER_ID,
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
             firebase.auth.PhoneAuthProvider.PROVIDER_ID
           ],
@@ -216,6 +215,7 @@ setTimeout(ldinsp, 0);
         ui.start('#firebaseui-auth-container', uiConfig);
 
         function lasboto() {
+          //THE MS AUTH
           var provider = new firebase.auth.OAuthProvider('microsoft.com');
           firebase.auth().signInWithPopup(provider)
             .then(function (result) {
@@ -234,14 +234,48 @@ setTimeout(ldinsp, 0);
             });
         }
         document.getElementById("msauth").addEventListener("click", lasboto);
+        //ACTIVATE THE MS LINK
 
         firebase.auth().onAuthStateChanged(function (user) {
+          //AUTO SIGNIN USERS - THE USER VARIABLE IS THE USER'S DATA, AND IS BLANK ON PRE-AUTH
             if (user) {
               document.location.href = '/app';
             } else {
               console.log("SIGN IN");
             }
           });
+          function mailsend()  {
+            //ABANDONED
+            //BETA
+            //DO NOT USE
+            let email = prompt("Please Enter Your Email", 
+                "");
+                var actionCodeSettings = {
+  // URL you want to redirect back to. The domain (www.example.com) for this
+  // URL must be whitelisted in the Firebase Console.
+  url: 'https://'+ "www.trapteamnz.tk" + '/auth.html',
+  // This must be true.
+  handleCodeInApp: true,
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  dynamicLinkDomain: 'trapteamcc.page.link'
+};
+firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+  .then(function() {
+    // The link was successfully sent. Inform the user.
+    // Save the email locally so you don't need to ask the user for it again
+    // if they open the link on the same device.
+    alert("Sent email to: " + email);
+    window.localStorage.setItem('emailForSignIn', email);
+  })
+  .catch(function(error) {
+    console.error(error);
+    // Some error occurred, you can inspect the code: error.code
+  });
+          }
       </script>
     </footer>
   </div>
