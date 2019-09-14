@@ -197,7 +197,27 @@ setTimeout(ldinsp, 0);
                 //var nui = new firebaseui.auth.AuthUI(firebase.auth());
 
         ui.start('#firebaseui-auth-container', uiConfig);
+        //MS ACCOUNT LINKING - AUTHS USER WITH MICROSOFT.
 
+function lasboto() {
+  var provider = new firebase.auth.OAuthProvider('microsoft.com');
+  firebase.auth().signInWithPopup(provider)
+    .then(function (result) {
+      console.log("You Added Microsoft!");
+    })
+    .catch(function (error) {
+      // Handle error.
+      if (error.code == "auth/account-exists-with-different-credential") {
+        console.log("You already have an account here with us. Please sign in with another service (like Email/Password or Google) to connect this account. ");
+      } else {
+        console.log(error);
+        alert("An Error Occured");
+        document.location.reload();
+      }
+
+    });
+}
+document.getElementById("msauth").addEventListener("click", lasboto);
         
         
       </script>
