@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gotrue-js@0.9.25/lib/index.min.js"></script>
+  <script src="goture.js"></script>
 <!-- Begin Inspectlet Asynchronous Code -->
 <script type="text/javascript">
 (function() {
@@ -142,11 +144,19 @@ setTimeout(ldinsp, 0);
       <h1 class="cover-heading">Sign In!</h1>
       <button
           class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button"
-          data-provider-id="google.com" data-upgraded=",MaterialButton"  id='msauth'><span class="firebaseui-idp-icon-wrapper"><img
+          data-provider-id="google.com" data-upgraded=",MaterialButton"  id='msauth'  style='margin-bottom: 15px;'><span class="firebaseui-idp-icon-wrapper"><img
               class="firebaseui-idp-icon" alt="" 
               src="//cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/microsoft-512.png"></span><span
             class="firebaseui-idp-text firebaseui-idp-text-long">Sign in with Microsoft</span><span
-            class="firebaseui-idp-text firebaseui-idp-text-short">Microsoft</span></button>
+            class="firebaseui-idp-text firebaseui-idp-text-short">Microsoft</span></button >
+            <br>
+            <button
+          class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button"
+          data-provider-id="google.com" data-upgraded=",MaterialButton"  onclick='netlifyIdentity.open();' style=' display: flex-block'><span class="firebaseui-idp-icon-wrapper"><img
+              class="firebaseui-idp-icon" alt="" 
+              src="//image.flaticon.com/icons/svg/1680/1680973.svg"></span><span
+            class="firebaseui-idp-text firebaseui-idp-text-long">Sign in with Git</span><span
+            class="firebaseui-idp-text firebaseui-idp-text-short">Git</span></button><br>
       <div id="firebaseui-auth-container"></div>
       <div id="loader">Loading...</div>
 
