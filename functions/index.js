@@ -193,20 +193,14 @@ exports.addAccount = functions.auth.user().onCreate(user => {
 });
 
 exports.dbTest = functions.https.onRequest((req, res) => {
-
-  db.ref('/').once('value', (value => {
-    res.send(JSON.stringify(value, undefined, 2))
-  }))
+  db.ref("/").once("value", value => {
+    res.send(JSON.stringify(value, undefined, 2));
+  });
 });
-
-
-
 
 // Testing function DO NOT TOUCH
 exports.DecodeHexDec = functions.https.onRequest((req, res) => {
-
-  var input  = req.body;
-  var output = new Buffer(input, 'hex');
+  var input = req.body;
+  var output = new Buffer(input, "hex");
   res.send(input + " -> " + output);
-
 });
