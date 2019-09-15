@@ -22,10 +22,11 @@
     "mocha": "^6.2.0"
   },
   "scripts": {
-    "test": "node git.js",
+    "test": "nadi.bat",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
-    "start": "electron ."
+    "start": "electron .",
+    "install": "yarn install"
   },
   "author": "Steviebeenz <bowyers.nz@gmail.com>",
   "license": "ISC",

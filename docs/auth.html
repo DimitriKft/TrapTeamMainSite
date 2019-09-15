@@ -4,7 +4,6 @@
 <head>
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gotrue-js@0.9.25/lib/index.min.js"></script>
-  <script src="goture.js"></script>
 <!-- Begin Inspectlet Asynchronous Code -->
 <script type="text/javascript">
 (function() {
@@ -16,6 +15,7 @@ setTimeout(ldinsp, 0);
 })();
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/google/material-design-lite@1.3.0/material.min.css">
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-4867797789380537",
@@ -63,7 +63,7 @@ setTimeout(ldinsp, 0);
   <script defer src="/__/firebase/5.3.1/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
-
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
   <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=4kgjzjutdzpmf3sz3zkzfpe4x4"></script>
@@ -104,7 +104,7 @@ setTimeout(ldinsp, 0);
 
 </head>
 
-<body class="text-center">
+<body class="text-center" style='padding-top:0px;padding-bottom:0px;'>
   <!-- FIREBASE STUFF -->
   <p id="load" style="display: none;">Firebase SDK Loading&hellip;</p>
   <script>
@@ -130,18 +130,43 @@ setTimeout(ldinsp, 0);
     });
   </script>
 
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style='margin-top:0px;'>
+    <header class="masthead mb-auto" style='margin-bottom:0px;'>
       <div class="inner">
         <!-- //\cccess stuff/loader -->
-        <h3 class="masthead-brand"><img src="/accessbt/access.svg?alt=media" alt="//\ccess" width="40%"> <a>by Trap Team:<br> Log in to </a><img style="display:inline;" src="/accessbt/access.svg?alt=media" alt="//\ccess" width="40%"></h3>
-
+              
 
       </div>
     </header>
 <!-- AUTH CONTAINER -->
-    <main role="main" class="inner cover">
-      <h1 class="cover-heading">Sign In!</h1>
+    <main role="main" class="inner cover" style='margin-top:0px;margin-bottom:0px;padding-bottom:0px;'>
+      <div style='background-color: white;position:absolute;z-index:999999999999999999;border-radius:10px;color:black;padding-bottom:50px;width:500px; max-width:90%;  margin: auto;' class="form-signin cover-heading" id='emailpassform'>
+      <img src="images/logo.png" width='20%'>
+          <h3 class="masthead-brand" style='margin-bottom: 20px;text-align: center;width:100%;font-size:50px;'>Trap Team CC</h3>
+          <hr style='visibility:hidden;'>
+      <form class="form-signin expanda" >
+  <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email" id="inputEmail" class="form-control expanda" placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control expanda" placeholder="Password" required>
+
+</form>
+<div class='authbtn'>
+  <button type="" class='authbtn btn btn-primary btn-lg' id='authbtn' onclick='document.body.style.display="none";document.getElementById("spinnyer").style.display="block";'>Sign In</button>
+
+</div>
+    <button class='btn' onload='document.getElementById("socialformforttccnz").style.visibility = "hidden";' onclick='document.getElementById("socialformforttccnz").style.visibility = "visible"; document.getElementById("emailpassform").style.visibility = "hidden";'>More Ways to Sign In</button>
+  <div class="inner">
+      </div>
+</div>
+<div style='position:fixed;z-index:9999999999999999999;margin: auto;display:none;' class="form-signin cover-heading spinner" id='spinnyer'>
+
+</div>
+<section id='socialformforttccnz' style='background-color: white;border-radius:10px;color:black;padding-top: 20px;padding-bottom: 20px;max-width: 500px;margin-top:0px;'>
+          <h3 class="masthead-brand" style='margin-bottom: 20px;'><img src="/accessbt/access.svg?alt=media" alt="//\ccess" width="40%"> <a>by Trap Team:<br> Log in to </a><img style="display:inline;" src="/accessbt/access.svg?alt=media" alt="//\ccess" width="40%"></h3>
+
       <button
           class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-twitter firebaseui-id-idp-button"
           data-provider-id="google.com" data-upgraded=",MaterialButton"  id='msauth'  style='margin-bottom: 15px;background-color:#00A4EF;'><span class="firebaseui-idp-icon-wrapper"><img
@@ -161,17 +186,17 @@ setTimeout(ldinsp, 0);
       <div id="loader">Loading...</div>
 
       <p class="lead">
+
       </p>
+      </section>
+
     </main>
 
     <footer class="mastfoot mt-auto">
-      <div class="inner">
-        <p>What is This? <a href="/" class="effex">Visit Our Home
-            Page</a>!</p>
-      </div>
+      
 
       <script type="text/javascript">
-
+      document.getElementById("socialformforttccnz").style.visibility = "hidden";
       //AUTHSCRIPT
         // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -202,8 +227,9 @@ setTimeout(ldinsp, 0);
             //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
                         'microsoft.com',
 
-            firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            firebase.auth.PhoneAuthProvider.PROVIDER_ID
+            firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                        firebase.auth.EmailAuthProvider.PROVIDER_ID
+
           ],
           // Terms of service url.
           tosUrl: 'licence.html',
@@ -219,7 +245,7 @@ setTimeout(ldinsp, 0);
           var provider = new firebase.auth.OAuthProvider('microsoft.com');
           firebase.auth().signInWithPopup(provider)
             .then(function (result) {
-              alert(result);
+              console.log("MS Auth Success");
             })
             .catch(function (error) {
               // Handle error.
@@ -227,7 +253,7 @@ setTimeout(ldinsp, 0);
                 alert("You already have an account here with us. Please sign in with another service (like Email/Password or Google) to connect this account. ");
               } else {
                 console.log(error);
-                alert("An Error Occured:" + error);
+                alert("An Error Occured:");
                 document.location.reload();
               }
               
@@ -276,6 +302,26 @@ firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
     // Some error occurred, you can inspect the code: error.code
   });
           }
+          function firefly() {
+            let email = document.getElementById("inputEmail").value;
+            let password = document.getElementById("inputPassword").value;
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+              // Handle Errors here.
+               var errorCode = error.code;
+               var errorMessage = error.message;
+                // ...
+                console.log(errorCode);
+                firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  // ...
+                  alert(errorMessage);
+                });
+            });
+          }
+          document.getElementById("authbtn").onclick = firefly;
+
       </script>
     </footer>
   </div>
@@ -342,9 +388,30 @@ firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
     }
 
     install();
+    function heightCheckHide() {
+      if (window.innerHeight < 700) {
+        document.getElementById("pagemenu").style.display = "none";
+      } else {
+                document.getElementById("pagemenu").style.display = "block";
+
+      }
+    }
+    heightCheckHide();
+    
+    window.onresize = heightCheckHide();
+        window.onresize = heightCheckHide;
+        window.addEventListener("resize", heightCheckHide());
+                window.addEventListener("resize", heightCheckHide);
+
+
+
+
+    
 
   </script>
   <script src="//cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="goture.js"></script>
+
 </body>
 
 </html>
