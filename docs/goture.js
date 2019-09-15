@@ -1,4 +1,3 @@
-
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     document.location.href = "/app";
