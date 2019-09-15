@@ -24,4 +24,4 @@ else
   ret=1
 fi
 
-exit $ret
+exit "${ret}"

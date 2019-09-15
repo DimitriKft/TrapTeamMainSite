@@ -10,7 +10,7 @@ function install_yarn {
   mkdir -p .yarn
   DOWNLOAD_URL="https://github.com/yarnpkg/yarn/releases/download/v$EXPECTED_YARN_VERSION/yarn-v$EXPECTED_YARN_VERSION.tar.gz"
   echo "Downloading from $DOWNLOAD_URL"
-  curl -fL $DOWNLOAD_URL > .yarn/yarn.tar.gz
+  curl -fL "$DOWNLOAD_URL" > .yarn/yarn.tar.gz
   tar zxf .yarn/yarn.tar.gz  --strip-components=1 -C .yarn
 }
 
