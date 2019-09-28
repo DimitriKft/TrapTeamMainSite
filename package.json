@@ -16,7 +16,7 @@
     "snyk": "^1.228.5"
   },
   "devDependencies": {
-    "electron": "^6.0.7",
+    "electron": "^6.0.10",
     "eslint": "^6.4.0",
     "eslint-plugin-promise": "^4.2.1",
     "mocha": "^6.2.0"
